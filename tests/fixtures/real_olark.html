@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Olark - More than a chatbot. An AI agent that works your marketing funnel 24/7</title>
+<script async type="text/javascript" src="//static.olark.com/a/cookie-consent/cookie-consent.js"></script>
+<script type="text/javascript">
+(function () {
+  
+  
+  
+  
+  function loadOlark() {
+    (function(o,l,a,r,k,y){if(o.olark)return;
+      r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+      y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+      y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+      y.extend=function(i,j){y("extend",i,j)};
+      y.identify=function(i){y("identify",k.i=i)};
+      y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+      k=y._={s:[],t:[+new Date],c:{},l:a};
+    })(window,document,"static.olark.com/jsclient/loader.js");
+    window.olark.identify('0000-000-00-0000');
+    try { localStorage.setItem('olark_seen', '1'); } catch (e) {}
+  }
+
+  var seen = false;
+  try { seen = !!localStorage.getItem('olark_seen'); } catch (e) {}
+
+  if (seen) {
+    loadOlark();
+    return;
+  }
+
+  
+  
+  var fired = false;
+  function fireOnce() {
+    if (fired) return;
+    fired = true;
+    loadOlark();
+  }
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(fireOnce, { timeout: 4000 });
+  } else {
+    setTimeout(fireOnce, 2500);
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function (ev) {
+    window.addEventListener(ev, fireOnce, { once: true, passive: true });
+  });
+})();
+</script>
+</head>
+<body>
+<footer>
+
+</footer>
+</body>
+</html>
